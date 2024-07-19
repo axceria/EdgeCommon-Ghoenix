@@ -13,6 +13,17 @@ type DNSResolver struct {
 	Protocol string `json:"protocol"`
 }
 
+/*
+DNS解析设计 #2
+type DNSResolver struct {
+	Host	string `json:"host"` // DNS Host
+ 	Port	int	`json:"port"` // 端口
+  	Protocol string `json:"protocol"` // 协议白名单 tls udp https
+   	TLSPort	int	`json:"tlsPort"` // TLS 端口
+    	DefaultUDP	int `json:"defaultUDP"` // 回滚端口
+}
+*/
+
 func (this *DNSResolver) Addr() string {
 	var port = this.Port
 	if port <= 0 {
